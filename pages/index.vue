@@ -1,68 +1,41 @@
 <template>
-  <div class="container">
-    <div>
-      <logo />
-      <h1 class="title">
-        hsv-dot-beer
-      </h1>
-      <h2 class="subtitle">
-        Find draft beer in Huntsville
+  <div class="container-fluid">
+    <div class="results-header">
+      <h2 class="results-number">
+        <span class="beer-total">100</span> beers on tap
       </h2>
-      <div class="links">
-        <a href="https://nuxtjs.org/" target="_blank" class="button--green">
-          Documentation
-        </a>
-        <a
-          href="https://github.com/nuxt/nuxt.js"
-          target="_blank"
-          class="button--grey"
-        >
-          GitHub
-        </a>
-      </div>
     </div>
+    <div class="container-list"></div>
   </div>
 </template>
 
 <script>
-import Logo from '~/components/Logo.vue'
-
-export default {
-  components: {
-    Logo
-  }
-}
+export default {}
 </script>
 
 <style>
-.container {
-  margin: 0 auto;
-  min-height: 100vh;
+.container-list {
+  margin: 0 -1rem;
+}
+
+.container-results-header {
+  border-bottom: 1px solid #ddd;
+}
+
+.results-header {
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
-  text-align: center;
+  text-transform: uppercase;
+  padding: 0.5rem 0;
 }
 
-.title {
-  font-family: 'Quicksand', 'Source Sans Pro', -apple-system, BlinkMacSystemFont,
-    'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-  display: block;
-  font-weight: 300;
-  font-size: 100px;
-  color: #35495e;
-  letter-spacing: 1px;
+.results-number {
+  font-size: 1rem;
+  margin: 0;
 }
 
-.subtitle {
-  font-weight: 300;
-  font-size: 42px;
-  color: #526488;
-  word-spacing: 5px;
-  padding-bottom: 15px;
-}
-
-.links {
-  padding-top: 15px;
+.beer-total {
+  font-weight: 700;
 }
 </style>
