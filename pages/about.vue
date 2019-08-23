@@ -46,7 +46,7 @@
     <h2 id="contactUs">Contact Us</h2>
     <p>
       HSV.beer is an open-source project hosted on
-      <a href="https://github.com/hsv-dot-beer" target="_blank">Github</a> with
+      <a href="https://github.com/hsv-dot-beer" target="_blank">GitHub</a> with
       multiple contributors. The founding contributors are Huntsville residents
       and craft beer lovers Michael Carroll, Drew Winstel, and Drew McDowell.
     </p>
@@ -87,7 +87,7 @@
     <hr class="my-5" />
     <p class="text-muted">
       HSV.beer is meant as a reference only and is not responsible for
-      innaccurate information.
+      inaccurate information.
     </p>
     <p class="text-muted">
       Please drink responsibly. Don't forget Lyft and Uber are available in
