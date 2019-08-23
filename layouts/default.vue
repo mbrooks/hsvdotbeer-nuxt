@@ -2,12 +2,15 @@
   <div class="page-container">
     <md-drawer :md-active.sync="showNavigation">
       <md-toolbar class="md-transparent" md-elevation="0">
-        <span class="md-title">My App name</span>
+        <span class="md-title">HSV.beer</span>
       </md-toolbar>
       <md-list>
-        <md-list-item>asdf</md-list-item>
-        <md-list-item>asdf</md-list-item>
-        <md-list-item>asdf</md-list-item>
+        <md-list-item to="/" @click="showNavigation = false">
+          Beers
+        </md-list-item>
+        <md-list-item to="/about" @click="showNavigation = false">
+          About
+        </md-list-item>
       </md-list>
     </md-drawer>
     <div class="header">
@@ -17,7 +20,7 @@
             <span class="particletext bubbles">
               <img
                 class="brand-logo"
-                src="/svg/hsv-beer-logo.svg"
+                src="~/assets/hsv-beer-logo.svg"
                 alt="hsv.beer"
               />
             </span>
@@ -60,6 +63,7 @@ body {
   -moz-osx-font-smoothing: grayscale;
   color: #31302c;
 }
+
 body {
   background-color: #f5bd00;
   background: linear-gradient(

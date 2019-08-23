@@ -19,7 +19,7 @@ export default {
       {
         rel: 'stylesheet',
         href:
-          '//fonts.googleapis.com/css?family=Roboto:100,200,300,400,500,700,400italic|Material+Icons'
+          '//fonts.googleapis.com/css?family=Montserrat:100,200,300,400,500,700,400italic|Material+Icons'
       }
     ]
   },
