@@ -248,8 +248,7 @@ beer-brewer,
   top: 0.875rem;
   right: 0.5rem;
   padding: 0.075rem;
-  background: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/69546/certificate.svg)
-    no-repeat 50% 50%;
+  background: url(~assets/certificate.svg) no-repeat 50% 50%;
   background-size: 2rem;
   width: 2rem;
   height: 2rem;
