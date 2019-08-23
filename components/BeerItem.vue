@@ -13,7 +13,9 @@
           {{ beer.style.name }}
           <span v-if="abvFixed" class="beer-abv">{{ abvFixed }}%</span>
         </div>
-        <div v-if="rating" class="beer-rating">{{ rating }}</div>
+        <div v-if="rating !== null && rating >= 0.1" class="beer-rating">
+          {{ rating }}
+        </div>
       </div>
     </div>
     <b-collapse
