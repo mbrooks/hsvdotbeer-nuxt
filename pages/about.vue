@@ -57,19 +57,19 @@
 
     <div class="row text-center founders">
       <div class="col mb-4">
-        <img class="mb-2" src="/static/img/carroll.jpeg" alt />
+        <img class="mb-2" src="/img/carroll.jpeg" alt />
         <br />Michael Carroll
         <br />
         <a href="mailto:michael@hsv.beer">michael@hsv.beer</a>
       </div>
       <div class="col mb-4">
-        <img class="mb-2" src="/static/img/winstel.jpeg" alt />
+        <img class="mb-2" src="/img/winstel.jpeg" alt />
         <br />Drew Winstel
         <br />
         <a href="mailto:drew@hsv.beer">drew@hsv.beer</a>
       </div>
       <div class="col mb-4">
-        <img class="mb-2" src="/static/img/mcdowell.jpeg" alt />
+        <img class="mb-2" src="/img/mcdowell.jpeg" alt />
         <br />Drew McDowell
         <br />
         <a href="mailto:mcd@hsv.beer">mcd@hsv.beer</a>
@@ -100,4 +100,8 @@
 export default {}
 </script>
 
-<style></style>
+<style>
+.founders img {
+  max-width: 200px;
+}
+</style>
