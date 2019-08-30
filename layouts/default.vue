@@ -20,13 +20,7 @@
       <div class="container-fluid container-header">
         <nav class="navbar navbar-expand-md navbar">
           <nuxt-link to="/" class="navbar-brand navbar-logo">
-            <span class="particletext bubbles">
-              <img
-                class="brand-logo"
-                src="~/assets/hsv-beer-logo.svg"
-                alt="hsv.beer"
-              />
-            </span>
+            <hsv-beer-logo></hsv-beer-logo>
           </nuxt-link>
           <md-button class="md-icon-button" @click="showNavigation = true">
             <md-icon>menu</md-icon>
@@ -44,7 +38,12 @@
 </template>
 
 <script>
+import HsvBeerLogo from '~/components/HsvBeerLogo.vue'
+
 export default {
+  components: {
+    HsvBeerLogo
+  },
   data: () => ({
     showNavigation: false
   })
