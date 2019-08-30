@@ -1,31 +1,36 @@
-export const state = () => ({
-  list: []
-})
+const storeRecord = (records) => (newRecord) => {
+  const existingRecord = records.find((r) => r.id === newRecord.id)
 
-export const mutations = {
-  set(state, venues) {
-    state.list = venues.results
+  if (existingRecord) {
+    Object.assign(existingRecord, newRecord)
+  } else {
+    records.push(newRecord)
   }
 }
 
-export const getters = {
-  getVenueBySlug: (state) => (slug) => {
-    return state.list.find((venue) => venue.slug === slug)
+export const state = () => ({
+  records: [],
+  count: 0
+})
+
+export const mutations = {
+  STORE_RECORD: (state, newRecord) => {
+    const { records } = state
+    storeRecord(records)(newRecord)
+  },
+  STORE_RECORDS: (state, newRecords) => {
+    const { records } = state
+    newRecords.forEach(storeRecord(records))
   }
 }
 
 export const actions = {
-  nuxtServerInit({ dispatch }) {
-    dispatch('get')
-  },
-  async get({ commit }) {
-    await this.$axios.get('venues/').then((res) => {
+  async load({ commit }) {
+    const url = `venues/`
+    await this.$axios.get(url).then((res) => {
       if (res.status === 200) {
-        commit('set', res.data)
+        commit('STORE_RECORDS', res.data.results)
       }
     })
-  },
-  async set({ commit }, venue) {
-    await commit('set', venue)
   }
 }

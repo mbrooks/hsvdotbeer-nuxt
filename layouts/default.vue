@@ -8,6 +8,9 @@
         <md-list-item to="/" @click="showNavigation = false">
           Beers
         </md-list-item>
+        <md-list-item to="/venues" @click="showNavigation = false">
+          Venues
+        </md-list-item>
         <md-list-item to="/about" @click="showNavigation = false">
           About
         </md-list-item>

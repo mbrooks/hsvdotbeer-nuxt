@@ -24,9 +24,9 @@ export default {
       beerCount: (state) => state.beers.count
     })
   },
-  async fetch({ store }) {
+  async fetch({ store, params }) {
     await store.dispatch('beers/loadPage', {
-      options: { on_tap: true, o: 'name' }
+      options: { on_tap: true, taps__venue__slug: params.slug, o: 'name' }
     })
   }
 }

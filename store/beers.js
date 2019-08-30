@@ -25,13 +25,15 @@ const getOptionsQuery = (optionsObject = {}) =>
     .map((k) => `${k}=${encodeURIComponent(optionsObject[k])}`)
     .join('&')
 
-export const state = () => ({
+const initialState = () => ({
   error: null,
   status: STATUS_INITIAL,
   links: {},
   count: 0,
   records: []
 })
+
+export const state = initialState
 
 export const mutations = {
   SET_STATUS: (state, status) => {
@@ -51,6 +53,9 @@ export const mutations = {
   STORE_RECORDS: (state, newRecords) => {
     const { records } = state
     newRecords.forEach(storeRecord(records))
+  },
+  RESET_STATE: (state) => {
+    Object.assign(state, initialState())
   }
 }
 
@@ -66,6 +71,7 @@ export const getters = {
 
 export const actions = {
   async loadPage({ commit }, { options }) {
+    commit('RESET_STATE')
     commit('SET_STATUS', STATUS_LOADING)
     const url = `beers/?${getOptionsQuery(options)}`
     await this.$axios
@@ -98,29 +104,5 @@ export const actions = {
         }
       })
       .catch(handleError(commit))
-  },
-  async getActive({ commit }) {
-    await this.$axios.get('beers/?on_tap=true').then((res) => {
-      if (res.status === 200) {
-        commit('set', res.data)
-      }
-    })
-  },
-  async get({ commit }) {
-    await this.$axios.get('beers/').then((res) => {
-      if (res.status === 200) {
-        commit('set', res.data)
-      }
-    })
-  },
-  async getVenueBeers({ commit }, venueId) {
-    await this.$axios.get('/venues/' + venueId + '/beers/').then((res) => {
-      if (res.status === 200) {
-        commit('set', res.data)
-      }
-    })
-  },
-  async set({ commit }, beer) {
-    await commit('set', beer)
   }
 }

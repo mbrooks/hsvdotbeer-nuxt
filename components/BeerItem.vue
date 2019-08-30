@@ -113,10 +113,6 @@ export default {
 </script>
 
 <style scoped>
-#beer-list {
-  padding: 0;
-  list-style: none;
-}
 .beer {
   position: relative;
   transition: all 0.1s ease-out;
