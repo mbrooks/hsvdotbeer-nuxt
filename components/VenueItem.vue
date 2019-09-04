@@ -47,21 +47,18 @@ export default {
 }
 .venue.active {
   background: #fffbee;
-  box-shadow: 0 1px 3px 1px rgba(60, 64, 67, 0.2),
-    0 2px 8px 4px rgba(60, 64, 67, 0.1);
+  box-shadow: 0 1px 3px 1px rgba(60, 64, 67, 0.2), 0 2px 8px 4px rgba(60, 64, 67, 0.1);
   z-index: 10;
   padding: 0.5rem 0 1rem;
 }
 .venue:hover,
 .venue:focus-within {
   background: #fffbee;
-  box-shadow: 0 1px 3px 1px rgba(60, 64, 67, 0.2),
-    0 2px 8px 4px rgba(60, 64, 67, 0.1);
+  box-shadow: 0 1px 3px 1px rgba(60, 64, 67, 0.2), 0 2px 8px 4px rgba(60, 64, 67, 0.1);
 }
 .venue.active:hover,
 .venue.active:focus-within {
-  box-shadow: 0 1px 3px 1px rgba(60, 64, 67, 0.2),
-    0 2px 8px 4px rgba(60, 64, 67, 0.1);
+  box-shadow: 0 1px 3px 1px rgba(60, 64, 67, 0.2), 0 2px 8px 4px rgba(60, 64, 67, 0.1);
 }
 .venue-intro {
   display: flex;

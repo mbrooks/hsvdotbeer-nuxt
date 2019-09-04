@@ -13,43 +13,25 @@
           {{ styleName }}
           <span v-if="abvFixed" class="beer-abv">{{ abvFixed }}%</span>
         </div>
-        <div v-if="rating !== null && rating >= 0.1" class="beer-rating">
-          {{ rating }}
-        </div>
+        <div v-if="rating !== null && rating >= 0.1" class="beer-rating">{{ rating }}</div>
       </div>
     </div>
-    <b-collapse
-      id="beerDetails"
-      v-model="visible"
-      class="beer-details-container"
-    >
+    <b-collapse id="beerDetails" v-model="visible" class="beer-details-container">
       <div class="beer-details">
         <div class="find-it">
           <h3 class="find-it-header">Find it on tap at:</h3>
           <ul class="find-it-list">
             <li v-for="place of beer.venues" :key="place.id">
-              <a target="_blank" :href="place.website">
-                {{ place.name }}
-              </a>
+              <a target="_blank" :href="place.website">{{ place.name }}</a>
             </li>
           </ul>
         </div>
         <div v-if="beer.untappd_url || beer.taphunter_url" class="learn-more">
           <h3 class="learn-more-header">Learn more</h3>
-          <a
-            v-if="beer.untappd_url"
-            :href="beer.untappd_url"
-            target="_blank"
-            class="btn btn-outline-primary"
-          >
+          <a v-if="beer.untappd_url" :href="beer.untappd_url" target="_blank" class="btn btn-outline-primary">
             Untappd
           </a>
-          <a
-            v-if="beer.taphunter_url"
-            :href="beer.taphunter_url"
-            target="_blank"
-            class="btn btn-outline-primary"
-          >
+          <a v-if="beer.taphunter_url" :href="beer.taphunter_url" target="_blank" class="btn btn-outline-primary">
             TapHunter
           </a>
         </div>
@@ -128,21 +110,18 @@ export default {
 }
 .beer.active {
   background: #fffbee;
-  box-shadow: 0 1px 3px 1px rgba(60, 64, 67, 0.2),
-    0 2px 8px 4px rgba(60, 64, 67, 0.1);
+  box-shadow: 0 1px 3px 1px rgba(60, 64, 67, 0.2), 0 2px 8px 4px rgba(60, 64, 67, 0.1);
   z-index: 10;
   padding: 0.5rem 0 1rem;
 }
 .beer:hover,
 .beer:focus-within {
   background: #fffbee;
-  box-shadow: 0 1px 3px 1px rgba(60, 64, 67, 0.2),
-    0 2px 8px 4px rgba(60, 64, 67, 0.1);
+  box-shadow: 0 1px 3px 1px rgba(60, 64, 67, 0.2), 0 2px 8px 4px rgba(60, 64, 67, 0.1);
 }
 .beer.active:hover,
 .beer.active:focus-within {
-  box-shadow: 0 1px 3px 1px rgba(60, 64, 67, 0.2),
-    0 2px 8px 4px rgba(60, 64, 67, 0.1);
+  box-shadow: 0 1px 3px 1px rgba(60, 64, 67, 0.2), 0 2px 8px 4px rgba(60, 64, 67, 0.1);
 }
 .beer-intro {
   display: flex;

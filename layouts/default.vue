@@ -5,15 +5,9 @@
         <span class="md-title">HSV.beer</span>
       </md-toolbar>
       <md-list>
-        <md-list-item to="/" @click="showNavigation = false">
-          Beers
-        </md-list-item>
-        <md-list-item to="/venues" @click="showNavigation = false">
-          Venues
-        </md-list-item>
-        <md-list-item to="/about" @click="showNavigation = false">
-          About
-        </md-list-item>
+        <md-list-item to="/" @click="showNavigation = false">Beers</md-list-item>
+        <md-list-item to="/venues" @click="showNavigation = false">Venues</md-list-item>
+        <md-list-item to="/about" @click="showNavigation = false">About</md-list-item>
       </md-list>
     </md-drawer>
     <div class="header">
@@ -26,9 +20,7 @@
             <md-icon>menu</md-icon>
           </md-button>
         </nav>
-        <p class="text-intro lead text-center">
-          Find draft beer in Huntsville
-        </p>
+        <p class="text-intro lead text-center">Find draft beer in Huntsville</p>
       </div>
     </div>
     <main>
@@ -68,13 +60,7 @@ body {
 
 body {
   background-color: #f5bd00;
-  background: linear-gradient(
-    to right,
-    #fcad0e 0%,
-    #febf01 30%,
-    #febf01 70%,
-    #fcad0e 100%
-  );
+  background: linear-gradient(to right, #fcad0e 0%, #febf01 30%, #febf01 70%, #fcad0e 100%);
 }
 
 img {
