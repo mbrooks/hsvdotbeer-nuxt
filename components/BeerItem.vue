@@ -42,7 +42,7 @@
             target="_blank"
             class="btn btn-outline-primary"
           >
-            untappd
+            Untappd
           </a>
           <a
             v-if="beer.taphunter_url"
