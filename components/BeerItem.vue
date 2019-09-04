@@ -9,8 +9,8 @@
           <h2 class="beer-name">{{ beer.name }}</h2>
         </a>
         <div class="beer-brewer">{{ beer.manufacturer.name }}</div>
-        <div v-if="beer.style" class="beer-style srm" :style="styleCss">
-          {{ beer.style.name }}
+        <div class="beer-style srm" :style="styleCss">
+          {{ styleName }}
           <span v-if="abvFixed" class="beer-abv">{{ abvFixed }}%</span>
         </div>
         <div v-if="rating !== null && rating >= 0.1" class="beer-rating">
@@ -84,7 +84,16 @@ export default {
       return this.beer.logo_url ? this.beer.logo_url : '/img/beernotfound.jpg'
     },
     styleCss() {
-      return { '--background-color': this.beer.color_srm_html }
+      if (this.beer.color_srm_html) {
+        return { '--background-color': this.beer.color_srm_html }
+      }
+      return {}
+    },
+    styleName() {
+      if (this.beer.style) {
+        return this.beer.style.name
+      }
+      return 'Unknown'
     },
     rating() {
       if (this.beer.untappd_metadata) {
