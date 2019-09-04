@@ -50,7 +50,8 @@ export default {
     'bootstrap-vue/nuxt',
     // Doc: https://axios.nuxtjs.org/usage
     '@nuxtjs/axios',
-    '@nuxtjs/pwa'
+    '@nuxtjs/pwa',
+    '@nuxtjs/google-analytics'
   ],
   /*
    ** Axios module configuration
@@ -59,6 +60,9 @@ export default {
   axios: {
     baseURL: 'https://dev.hsv.beer/api/v1/'
   },
+  googleAnalytics: {
+    id: 'UA-133963028-1'
+  },
   /*
    ** Build configuration
    */
@@ -66,7 +70,6 @@ export default {
     /*
      ** You can extend webpack config here
      */
-    vendor: ['vue-material'],
     extend(config, ctx) {}
   },
   server: {
