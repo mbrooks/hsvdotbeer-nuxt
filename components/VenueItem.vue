@@ -2,7 +2,7 @@
   <li class="venue" :class="{ active: visible }">
     <div class="venue-intro">
       <div class="venue-logo">
-        <img :src="logo" />
+        <b-img-lazy :src="logo" blank-src="/img/beernotfound.jpg" />
       </div>
       <div class="venue-info">
         <nuxt-link :to="venue.slug" class="venue-link">
@@ -29,6 +29,9 @@ export default {
   },
   computed: {
     logo() {
+      if (this.venue.logo_url) {
+        return this.venue.logo_url
+      }
       return '/img/beernotfound.jpg'
     }
   },
