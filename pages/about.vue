@@ -49,36 +49,50 @@
       <a href="https://tech256.com" target="_blank">Tech256</a>
     </p>
 
-    <div class="row text-center founders">
-      <div class="col mb-4">
-        <img class="mb-2" src="/img/carroll.jpeg" alt />
-        <br />Michael Carroll
-        <br />
-        <a href="mailto:michael@hsv.beer">michael@hsv.beer</a>
+    <div class="row text-sm-center founders">
+      <div class="col col-12 col-sm-4 mb-4">
+        <div class="row">
+          <div class="col col-4 col-sm-12">
+            <img class="mb-2" src="/img/carroll.jpeg" alt />
+          </div>
+          <div class="col col-8 col-sm-12">
+            Michael Carroll
+            <br />
+            <a href="mailto:michael@hsv.beer">michael@hsv.beer</a>
+          </div>
+        </div>
       </div>
-      <div class="col mb-4">
-        <img class="mb-2" src="/img/winstel.jpeg" alt />
-        <br />Drew Winstel
-        <br />
-        <a href="mailto:drew@hsv.beer">drew@hsv.beer</a>
+      <div class="col col-12 col-sm-4 mb-4">
+        <div class="row">
+          <div class="col col-4 col-sm-12">
+            <img class="mb-2" src="/img/winstel.jpeg" alt />
+          </div>
+          <div class="col col-8 col-sm-12">
+            Drew Winstel
+            <br />
+            <a href="mailto:drew@hsv.beer">drew@hsv.beer</a>
+          </div>
+        </div>
       </div>
-      <div class="col mb-4">
-        <img class="mb-2" src="/img/mcdowell.jpeg" alt />
-        <br />Drew McDowell
-        <br />
-        <a href="mailto:mcd@hsv.beer">mcd@hsv.beer</a>
+      <div class="col col-12 col-sm-4 mb-4">
+        <div class="row">
+          <div class="col col-4 col-sm-12">
+            <img class="mb-2" src="/img/mcdowell.jpeg" alt />
+          </div>
+          <div class="col col-8 col-sm-12">
+            Drew McDowell
+            <br />
+            <a href="mailto:mcd@hsv.beer">mcd@hsv.beer</a>
+          </div>
+        </div>
       </div>
     </div>
     <p class="text-center">
       <a class="btn btn-primary" href="https://twitter.com/hsvdotbeer" target="_blank">@hsvdotbeer</a>
     </p>
     <hr class="my-5" />
-    <p class="text-muted">
-      HSV.beer is meant as a reference only and is not responsible for inaccurate information.
-    </p>
-    <p class="text-muted">
-      Please drink responsibly. Don't forget Lyft and Uber are available in Huntsville. :)
-    </p>
+    <p class="text-muted">HSV.beer is meant as a reference only and is not responsible for inaccurate information.</p>
+    <p class="text-muted">Please drink responsibly. Don't forget Lyft and Uber are available in Huntsville. :)</p>
   </div>
 </template>
 
@@ -87,7 +101,9 @@ export default {}
 </script>
 
 <style>
-.founders img {
-  max-width: 200px;
+@media (min-width: 576px) {
+  .founders img {
+    width: 200px;
+  }
 }
 </style>

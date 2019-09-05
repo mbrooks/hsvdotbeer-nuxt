@@ -1,14 +1,17 @@
 <template>
   <div class="page-container">
     <md-drawer :md-active.sync="showNavigation">
-      <md-toolbar class="md-transparent" md-elevation="0">
-        <span class="md-title">HSV.beer</span>
-      </md-toolbar>
-      <md-list>
-        <md-list-item to="/" @click="showNavigation = false">Beers</md-list-item>
-        <md-list-item to="/venues" @click="showNavigation = false">Venues</md-list-item>
-        <md-list-item to="/about" @click="showNavigation = false">About</md-list-item>
-      </md-list>
+      <ul class="nav flex-column">
+        <li class="nav-item">
+          <a class="nav-link" href="/" @click="showNavigation = false">Beers</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/venues" @click="showNavigation = false">Venues</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/about" @click="showNavigation = false">About</a>
+        </li>
+      </ul>
     </md-drawer>
     <div class="header">
       <div class="container-fluid container-header">
@@ -16,9 +19,21 @@
           <nuxt-link to="/" class="navbar-brand navbar-logo">
             <hsv-beer-logo></hsv-beer-logo>
           </nuxt-link>
-          <md-button class="md-icon-button" @click="showNavigation = true">
-            <md-icon>menu</md-icon>
-          </md-button>
+          <a class="menu-link md-icon-button" href="#" @click="showNavigation = true">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              class="feather feather-menu"
+            >
+              <path d="M3 12h18M3 6h18M3 18h18" />
+            </svg>
+          </a>
         </nav>
         <p class="text-intro lead text-center">Find draft beer in Huntsville</p>
       </div>
@@ -43,28 +58,30 @@ export default {
 </script>
 
 <style>
-.md-drawer {
-  width: 230px;
-  max-width: calc(100vw - 125px);
-}
-
 html,
 body {
   font-size: 14px;
   font-family: 'Montserrat', sans-serif;
   font-weight: 400;
+  line-height: 1.6;
+  letter-spacing: -0.0125rem;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   color: #31302c;
-}
-
-body {
   background-color: #f5bd00;
   background: linear-gradient(to right, #fcad0e 0%, #febf01 30%, #febf01 70%, #fcad0e 100%);
 }
 
 img {
   max-width: 100%;
+}
+
+a {
+  color: #906500;
+}
+
+a:hover {
+  color: #31302c;
 }
 
 .container-fluid {
@@ -86,7 +103,21 @@ nav,
 }
 
 nav.navbar {
+  position: unset;
   box-shadow: none;
+}
+
+.menu-link {
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  padding: 0.5rem;
+  color: #31302c;
+  border-radius: 50%;
+}
+
+.menu-link:hover {
+  background: rgba(0, 0, 0, 0.15);
 }
 
 .navbar-logo {
@@ -120,6 +151,104 @@ body .particletext.bubbles > .particle {
   border-radius: 100%;
   border: 0.75px solid rgba(255, 255, 255, 0.8);
   z-index: -1;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+p {
+  color: #31302c;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+.h1,
+.h2,
+.h3,
+.h4,
+.h5 {
+  padding-top: 0.75em;
+  padding-bottom: 0.125em;
+}
+h2:first-child,
+h3:first-child,
+h4:first-child,
+h5:first-child {
+  padding-top: 0;
+}
+h2 a {
+  font-weight: bold;
+}
+a {
+  color: #906500;
+  transition: all 0.2s ease-out;
+}
+a:hover {
+  color: #31302c;
+}
+hr {
+  border-top: 1px solid #ddd;
+}
+.z-1,
+.btn.btn-raised {
+  -webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+  -webkit-transition: -webkit-box-shadow 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  transition: -webkit-box-shadow 0.2s cubic-bezier(0.25, 0.8, 0.25, 1);
+  transition: box-shadow 0.2s cubic-bezier(0.25, 0.8, 0.25, 1);
+  transition: box-shadow 0.2s cubic-bezier(0.25, 0.8, 0.25, 1), -webkit-box-shadow 0.2s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+.z-1.z-hover:hover,
+.z-1.z-hover:active,
+.z-1.z-hover:focus,
+.btn.btn-raised:hover,
+.btn.btn-raised:active,
+.btn.btn-raised:focus {
+  -webkit-box-shadow: 0 8px 16px rgba(0, 0, 0, 0.25), 0 4px 8px rgba(0, 0, 0, 0.22);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.25), 0 4px 8px rgba(0, 0, 0, 0.22);
+}
+.z-2 {
+  -webkit-box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+}
+.z-3 {
+  -webkit-box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+}
+.z-4 {
+  -webkit-box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+}
+.z-5 {
+  -webkit-box-shadow: 0 19px 38px rgba(0, 0, 0, 0.3), 0 15px 12px rgba(0, 0, 0, 0.22);
+  box-shadow: 0 19px 38px rgba(0, 0, 0, 0.3), 0 15px 12px rgba(0, 0, 0, 0.22);
+}
+
+.btn.btn-raised.btn-primary {
+  background-color: #f5bd00;
+  color: #31302c;
+}
+
+.btn.btn-raised.btn-primary:hover,
+.btn.btn-raised.btn-primary:focus {
+  background-color: #ffd34f;
+  color: #31302c;
+}
+
+.btn.btn-outline-primary {
+  color: #906500;
+  border-color: #906500;
+}
+
+.btn.btn-outline-primary:hover,
+.btn.btn-outline-primary:focus {
+  color: #31302c;
+  border-color: #31302c;
+  background-color: #f5bd00;
 }
 
 main {
