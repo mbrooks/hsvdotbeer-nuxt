@@ -19,7 +19,7 @@
           <nuxt-link to="/" class="navbar-brand navbar-logo">
             <hsv-beer-logo></hsv-beer-logo>
           </nuxt-link>
-          <a class="menu-link md-icon-button" href="#" @click="showNavigation = true">
+          <b-link class="menu-link md-icon-button" href="#" @click="showNavigation = true">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="24"
@@ -33,7 +33,7 @@
             >
               <path d="M3 12h18M3 6h18M3 18h18" />
             </svg>
-          </a>
+          </b-link>
         </nav>
         <p class="text-intro lead text-center">Find draft beer in Huntsville</p>
       </div>
@@ -46,10 +46,12 @@
 
 <script>
 import HsvBeerLogo from '~/components/HsvBeerLogo.vue'
+import MdDrawer from '~/components/md/MdDrawer.vue'
 
 export default {
   components: {
-    HsvBeerLogo
+    HsvBeerLogo,
+    MdDrawer
   },
   data: () => ({
     showNavigation: false

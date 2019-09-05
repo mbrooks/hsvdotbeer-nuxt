@@ -29,11 +29,11 @@ export default {
   /*
    ** Global CSS
    */
-  css: [{ src: '~/assets/css/drawer.css', lang: 'css' }],
+  css: [],
   /*
    ** Plugins to load before mounting the App
    */
-  plugins: [{ src: '~/plugins/vue-material' }],
+  plugins: [],
   /*
    ** Nuxt.js dev-modules
    */
@@ -59,6 +59,9 @@ export default {
   axios: {
     baseURL: 'https://dev.hsv.beer/api/v1/'
   },
+  bootstrapVue: {
+    componentPlugins: ['LayoutPlugin', 'ImagePlugin', 'CollapsePlugin', 'LinkPlugin']
+  },
   googleAnalytics: {
     id: 'UA-133963028-1'
   },
@@ -69,6 +72,7 @@ export default {
     /*
      ** You can extend webpack config here
      */
+    extractCSS: true,
     extend(config, ctx) {}
   },
   server: {
