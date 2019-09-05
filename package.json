@@ -2,7 +2,7 @@
   "name": "hsv-dot-beer",
   "version": "1.0.0",
   "description": "Find draft beer in Huntsville",
-  "author": "Michael Carroll",
+  "author": "HSV.beer",
   "private": true,
   "scripts": {
     "dev": "nuxt",
