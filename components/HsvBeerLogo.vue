@@ -1,7 +1,7 @@
 <template>
   <div class="hsv-beer-logo">
     <span ref="particletext" class="particletext bubbles">
-      <img ref="logo" class="brand-logo" src="~/assets/hsv-beer-logo.svg" alt="hsv.beer" />
+      <b-img-lazy ref="logo" class="brand-logo" src="~/assets/hsv-beer-logo.svg" alt="hsv.beer" />
       <span v-for="p in particles" :key="p.id" class="particle" :style="p.style"></span>
     </span>
   </div>

@@ -14,13 +14,7 @@ export default {
         content: process.env.npm_package_description || ''
       }
     ],
-    link: [
-      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
-      {
-        rel: 'stylesheet',
-        href: '//fonts.googleapis.com/css?family=Montserrat:400,500|Oswald:500|Material+Icons'
-      }
-    ]
+    link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }]
   },
   /*
    ** Customize the progress-bar color
@@ -50,7 +44,8 @@ export default {
     // Doc: https://axios.nuxtjs.org/usage
     '@nuxtjs/axios',
     '@nuxtjs/pwa',
-    '@nuxtjs/google-analytics'
+    '@nuxtjs/google-analytics',
+    'nuxt-webfontloader'
   ],
   /*
    ** Axios module configuration
@@ -64,6 +59,15 @@ export default {
   },
   googleAnalytics: {
     id: 'UA-133963028-1'
+  },
+  webfontloader: {
+    custom: {
+      families: ['Montserrat:n4,n5', 'Oswald:n5'],
+      urls: [
+        'https://fonts.googleapis.com/css?family=Montserrat:400,500&display=swap',
+        'https://fonts.googleapis.com/css?family=Oswald:500&display=swap'
+      ]
+    }
   },
   /*
    ** Build configuration

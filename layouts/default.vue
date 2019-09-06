@@ -3,23 +3,23 @@
     <md-drawer :md-active.sync="showNavigation">
       <ul class="nav flex-column">
         <li class="nav-item">
-          <a class="nav-link" href="/" @click="showNavigation = false">Beers</a>
+          <b-link class="nav-link" to="/" @click="showNavigation = false">Beers</b-link>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="/venues" @click="showNavigation = false">Venues</a>
+          <b-link class="nav-link" to="/venues" @click="showNavigation = false">Venues</b-link>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="/about" @click="showNavigation = false">About</a>
+          <b-link class="nav-link" to="/about" @click="showNavigation = false">About</b-link>
         </li>
       </ul>
     </md-drawer>
     <div class="header">
       <div class="container-fluid container-header">
         <nav class="navbar navbar-expand-md navbar">
-          <nuxt-link to="/" class="navbar-brand navbar-logo">
+          <b-link to="/" class="navbar-brand navbar-logo">
             <hsv-beer-logo></hsv-beer-logo>
-          </nuxt-link>
-          <b-link class="menu-link md-icon-button" href="#" @click="showNavigation = true">
+          </b-link>
+          <b-link aria-label="Navigation Menu" class="menu-link md-icon-button" @click="showNavigation = true">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="24"
@@ -137,22 +137,6 @@ nav.navbar {
 
 .text-intro {
   padding-bottom: 1rem;
-}
-
-body .particletext {
-  position: relative;
-  z-index: 5;
-}
-
-body .particletext.bubbles > .particle {
-  opacity: 0;
-  position: absolute;
-  background-color: transparent;
-  -webkit-animation: bubbles 3s ease-in infinite;
-  animation: bubbles 3s ease-in infinite;
-  border-radius: 100%;
-  border: 0.75px solid rgba(255, 255, 255, 0.8);
-  z-index: -1;
 }
 
 h1,

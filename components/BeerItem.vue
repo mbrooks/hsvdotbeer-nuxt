@@ -2,12 +2,12 @@
   <li class="beer" :class="{ active: visible }">
     <div class="beer-intro">
       <div class="beer-logo">
-        <b-img-lazy :src="logo" blank-src="/img/beernotfound.jpg" />
+        <b-img-lazy :src="logo" blank-src="/img/beernotfound.jpg" :alt="logoAlt" />
       </div>
       <div class="beer-info">
-        <a class="beer-link" href="javascript:;" @click="toggle">
+        <b-link class="beer-link" @click="toggle">
           <h2 class="beer-name">{{ beer.name }}</h2>
-        </a>
+        </b-link>
         <div class="beer-brewer">{{ beer.manufacturer.name }}</div>
         <div class="beer-style srm" :style="styleCss">
           {{ styleName }}
@@ -16,38 +16,63 @@
         <div v-if="rating !== null && rating >= 0.1" class="beer-rating">{{ rating }}</div>
       </div>
     </div>
-    <b-collapse id="beerDetails" v-model="visible" class="beer-details-container">
+    <b-collapse :id="beer.id.toString()" v-model="visible" class="beer-details-container">
       <div class="beer-details">
         <div class="find-it">
           <h3 class="find-it-header">Find it on tap at:</h3>
           <ul class="find-it-list">
             <li v-for="place of beer.venues" :key="place.id">
-              <a target="_blank" :href="place.website">{{ place.name }}</a>
+              <b-link target="_blank" rel="noreferrer" :href="place.website">{{ place.name }}</b-link>
             </li>
           </ul>
         </div>
         <div v-if="hasUrl" class="learn-more">
           <h3 class="learn-more-header">Learn more</h3>
-          <a v-if="beer.untappd_url" :href="beer.untappd_url" target="_blank" class="btn btn-outline-primary">
+          <b-link
+            v-if="beer.untappd_url"
+            :href="beer.untappd_url"
+            target="_blank"
+            rel="noreferrer"
+            class="btn btn-outline-primary"
+          >
             Untappd
-          </a>
-          <a v-if="beer.taphunter_url" :href="beer.taphunter_url" target="_blank" class="btn btn-outline-primary">
+          </b-link>
+          <b-link
+            v-if="beer.taphunter_url"
+            :href="beer.taphunter_url"
+            target="_blank"
+            rel="noreferrer"
+            class="btn btn-outline-primary"
+          >
             TapHunter
-          </a>
-          <a v-if="beer.rate_beer_url" :href="beer.rate_beer_url" target="_blank" class="btn btn-outline-primary">
+          </b-link>
+          <b-link
+            v-if="beer.rate_beer_url"
+            :href="beer.rate_beer_url"
+            target="_blank"
+            rel="noreferrer"
+            class="btn btn-outline-primary"
+          >
             RateBeer
-          </a>
-          <a
+          </b-link>
+          <b-link
             v-if="beer.beer_advocate_url"
             :href="beer.beer_advocate_url"
             target="_blank"
+            rel="noreferrer"
             class="btn btn-outline-primary"
           >
             BeerAdvocate
-          </a>
-          <a v-if="stemAndSteinUrl" :href="stemAndSteinUrl" target="_blank" class="btn btn-outline-primary">
+          </b-link>
+          <b-link
+            v-if="stemAndSteinUrl"
+            :href="stemAndSteinUrl"
+            target="_blank"
+            rel="noreferrer"
+            class="btn btn-outline-primary"
+          >
             Stem and Stein
-          </a>
+          </b-link>
         </div>
       </div>
     </b-collapse>
@@ -78,6 +103,9 @@ export default {
     },
     logo() {
       return this.beer.logo_url ? this.beer.logo_url : '/img/beernotfound.jpg'
+    },
+    logoAlt() {
+      return this.beer.name + ' logo'
     },
     styleCss() {
       if (this.beer.color_srm_html) {
