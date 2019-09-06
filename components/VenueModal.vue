@@ -172,19 +172,19 @@ export default {
 }
 
 .venue-address:before {
-  content: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/69546/placeholder.svg);
+  content: url(~assets/placeholder.svg);
 }
 
 .venue-website:before {
-  content: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/69546/internet.svg);
+  content: url(~assets/internet.svg);
 }
 
 .venue-email:before {
-  content: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/69546/mail.svg);
+  content: url(~assets/mail.svg);
 }
 
 .venue-phone:before {
-  content: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/69546/telephone.svg);
+  content: url(~assets/telephone.svg);
 }
 
 .venue-social {
