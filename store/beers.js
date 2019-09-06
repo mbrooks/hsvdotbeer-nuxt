@@ -3,8 +3,8 @@ const STATUS_LOADING = 'LOADING'
 const STATUS_ERROR = 'ERROR'
 const STATUS_SUCCESS = 'SUCCESS'
 
-const storeRecord = (records) => (newRecord) => {
-  const existingRecord = records.find((r) => r.id === newRecord.id)
+const storeRecord = records => (newRecord) => {
+  const existingRecord = records.find(r => r.id === newRecord.id)
 
   if (existingRecord) {
     Object.assign(existingRecord, newRecord)
@@ -13,7 +13,7 @@ const storeRecord = (records) => (newRecord) => {
   }
 }
 
-const handleError = (commit) => (errorResponse) => {
+const handleError = commit => (errorResponse) => {
   commit('SET_STATUS', STATUS_ERROR)
   commit('STORE_ERROR', errorResponse)
   throw errorResponse
@@ -21,8 +21,8 @@ const handleError = (commit) => (errorResponse) => {
 
 const getOptionsQuery = (optionsObject = {}) =>
   Object.keys(optionsObject)
-    .filter((k) => typeof optionsObject[k] !== 'undefined')
-    .map((k) => `${k}=${encodeURIComponent(optionsObject[k])}`)
+    .filter(k => typeof optionsObject[k] !== 'undefined')
+    .map(k => `${k}=${encodeURIComponent(optionsObject[k])}`)
     .join('&')
 
 const initialState = () => ({
@@ -60,17 +60,17 @@ export const mutations = {
 }
 
 export const getters = {
-  isLoading: (state) => state.status === STATUS_LOADING,
-  isError: (state) => state.status === STATUS_ERROR,
-  error: (state) => state.error,
-  hasPrevious: (state) => !!state.links.prev,
-  hasNext: (state) => !!state.links.next,
-  all: (state) => state.records,
-  byId: (state) => ({ id }) => state.records.find((r) => r.id === id)
+  isLoading: state => state.status === STATUS_LOADING,
+  isError: state => state.status === STATUS_ERROR,
+  error: state => state.error,
+  hasPrevious: state => !!state.links.prev,
+  hasNext: state => !!state.links.next,
+  all: state => state.records,
+  byId: state => ({ id }) => state.records.find(r => r.id === id)
 }
 
 export const actions = {
-  async loadPage({ commit }, { options }) {
+  async loadPage ({ commit }, { options }) {
     commit('RESET_STATE')
     commit('SET_STATUS', STATUS_LOADING)
     const url = `beers/?${getOptionsQuery(options)}`
@@ -89,7 +89,7 @@ export const actions = {
       })
       .catch(handleError(commit))
   },
-  async loadNextPage({ commit, state }) {
+  async loadNextPage ({ commit, state }) {
     await this.$axios
       .get(state.links.next)
       .then((res) => {

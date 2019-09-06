@@ -2,7 +2,7 @@
   <div class="container-fluid">
     <div class="container-list">
       <ul id="venue-list">
-        <venue-item v-for="venue in venues" :key="venue.id" :venue="venue"> </venue-item>
+        <venue-item v-for="venue in venues" :key="venue.id" :venue="venue" />
       </ul>
     </div>
   </div>
@@ -18,10 +18,10 @@ export default {
   },
   computed: {
     ...mapState({
-      venues: (state) => state.venues.records
+      venues: state => state.venues.records
     })
   },
-  async fetch({ store }) {
+  async fetch ({ store }) {
     await store.dispatch('venues/load')
   }
 }

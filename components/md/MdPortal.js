@@ -8,7 +8,7 @@ export default {
     mdAttachToParent: Boolean,
     mdTarget: {
       type: null,
-      validator(value) {
+      validator (value) {
         if (HTMLElement && value && value instanceof HTMLElement) {
           return true
         }
@@ -24,7 +24,7 @@ export default {
     originalParentEl: null
   }),
   computed: {
-    transitionName() {
+    transitionName () {
       const childrenComponent = this._vnode.componentOptions.children[0]
 
       if (childrenComponent) {
@@ -43,18 +43,18 @@ export default {
 
       return 'v'
     },
-    leaveClass() {
+    leaveClass () {
       return this.transitionName + '-leave'
     },
-    leaveActiveClass() {
+    leaveActiveClass () {
       return this.transitionName + '-leave-active'
     },
-    leaveToClass() {
+    leaveToClass () {
       return this.transitionName + '-leave-to'
     }
   },
   watch: {
-    mdTarget(newTarget, oldTarget) {
+    mdTarget (newTarget, oldTarget) {
       this.changeParentEl(newTarget)
 
       if (oldTarget) {
@@ -63,7 +63,7 @@ export default {
     }
   },
   methods: {
-    getTransitionDuration(el) {
+    getTransitionDuration (el) {
       const duration = window.getComputedStyle(el).transitionDuration
       const num = parseFloat(duration, 10)
       let unit = duration.match(/m?s/)
@@ -82,14 +82,14 @@ export default {
 
       return 0
     },
-    killGhostElement(el) {
+    killGhostElement (el) {
       if (el.parentNode) {
         this.changeParentEl(this.originalParentEl)
         this.$options._parentElm = this.originalParentEl
         el.parentNode.removeChild(el)
       }
     },
-    initDestroy(manualCall) {
+    initDestroy (manualCall) {
       let el = this.$el
 
       if (manualCall && this.$el.nodeType === Node.COMMENT_NODE) {
@@ -108,7 +108,7 @@ export default {
         }, this.getTransitionDuration(el))
       })
     },
-    destroyElement(el) {
+    destroyElement (el) {
       raf(() => {
         el.classList.remove(this.leaveClass)
         el.classList.remove(this.leaveActiveClass)
@@ -117,11 +117,11 @@ export default {
         this.killGhostElement(el)
       })
     },
-    changeParentEl(newTarget) {
+    changeParentEl (newTarget) {
       newTarget && newTarget.appendChild(this.$el)
     }
   },
-  mounted() {
+  mounted () {
     if (!this.originalParentEl) {
       this.originalParentEl = this.$el.parentNode
       this.$emit('md-initial-parent', this.$el.parentNode)
@@ -133,14 +133,14 @@ export default {
       this.changeParentEl(this.mdTarget || document.body)
     }
   },
-  beforeDestroy() {
+  beforeDestroy () {
     if (this.$el.classList) {
       this.initDestroy()
     } else {
       this.killGhostElement(this.$el)
     }
   },
-  render(createElement) {
+  render (createElement) {
     const defaultSlot = this.$slots.default
 
     if (defaultSlot && defaultSlot[0]) {

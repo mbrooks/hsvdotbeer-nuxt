@@ -7,7 +7,7 @@
       </h2>
     </div>
 
-    <beer-list></beer-list>
+    <beer-list />
   </div>
 </template>
 
@@ -21,10 +21,10 @@ export default {
   },
   computed: {
     ...mapState({
-      beerCount: (state) => state.beers.count
+      beerCount: state => state.beers.count
     })
   },
-  async fetch({ store, params }) {
+  async fetch ({ store, params }) {
     await store.dispatch('beers/loadPage', {
       options: { on_tap: true, taps__venue__slug: params.slug, o: 'name' }
     })

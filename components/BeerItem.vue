@@ -6,28 +6,40 @@
       </div>
       <div class="beer-info">
         <b-link class="beer-link" @click="toggle">
-          <h2 class="beer-name">{{ beer.name }}</h2>
+          <h2 class="beer-name">
+            {{ beer.name }}
+          </h2>
         </b-link>
-        <div class="beer-brewer">{{ beer.manufacturer.name }}</div>
+        <div class="beer-brewer">
+          {{ beer.manufacturer.name }}
+        </div>
         <div class="beer-style srm" :style="styleCss">
           {{ styleName }}
           <span v-if="abvFixed" class="beer-abv">{{ abvFixed }}%</span>
         </div>
-        <div v-if="rating !== null && rating >= 0.1" class="beer-rating">{{ rating }}</div>
+        <div v-if="rating !== null && rating >= 0.1" class="beer-rating">
+          {{ rating }}
+        </div>
       </div>
     </div>
     <b-collapse :id="beer.id.toString()" v-model="visible" class="beer-details-container">
       <div class="beer-details">
         <div class="find-it">
-          <h3 class="find-it-header">Find it on tap at:</h3>
+          <h3 class="find-it-header">
+            Find it on tap at:
+          </h3>
           <ul class="find-it-list">
             <li v-for="place of beer.venues" :key="place.id">
-              <b-link target="_blank" rel="noreferrer" :href="place.website">{{ place.name }}</b-link>
+              <b-link target="_blank" rel="noreferrer" :href="place.website">
+                {{ place.name }}
+              </b-link>
             </li>
           </ul>
         </div>
         <div v-if="hasUrl" class="learn-more">
-          <h3 class="learn-more-header">Learn more</h3>
+          <h3 class="learn-more-header">
+            Learn more
+          </h3>
           <b-link
             v-if="beer.untappd_url"
             :href="beer.untappd_url"
@@ -88,38 +100,38 @@ export default {
       default: () => {}
     }
   },
-  data() {
+  data () {
     return {
       visible: false
     }
   },
   computed: {
-    abvFixed() {
+    abvFixed () {
       if (this.beer.abv) {
         return Number(this.beer.abv).toFixed(1)
       } else {
         return undefined
       }
     },
-    logo() {
+    logo () {
       return this.beer.logo_url ? this.beer.logo_url : '/img/beernotfound.jpg'
     },
-    logoAlt() {
+    logoAlt () {
       return this.beer.name + ' logo'
     },
-    styleCss() {
+    styleCss () {
       if (this.beer.color_srm_html) {
         return { '--background-color': this.beer.color_srm_html }
       }
       return {}
     },
-    styleName() {
+    styleName () {
       if (this.beer.style) {
         return this.beer.style.name
       }
       return 'Unknown'
     },
-    rating() {
+    rating () {
       if (this.beer.untappd_metadata) {
         if (this.beer.untappd_metadata.json_data) {
           const rating = this.beer.untappd_metadata.json_data.rating_score
@@ -128,7 +140,7 @@ export default {
       }
       return undefined
     },
-    ratingCount() {
+    ratingCount () {
       if (this.beer.untappd_metadata) {
         if (this.beer.untappd_metadata.json_data) {
           return this.beer.untappd_metadata.json_data.rating_count
@@ -136,13 +148,13 @@ export default {
       }
       return undefined
     },
-    stemAndSteinUrl() {
+    stemAndSteinUrl () {
       if (this.beer.stem_and_stein_pk) {
         return 'https://thestemandstein.com/Home/BeerDetails/' + this.beer.stem_and_stein_pk
       }
       return undefined
     },
-    hasUrl() {
+    hasUrl () {
       return (
         this.beer.untappd_url ||
         this.beer.taphunter_url ||
@@ -153,7 +165,7 @@ export default {
     }
   },
   methods: {
-    toggle() {
+    toggle () {
       this.visible = !this.visible
     }
   }

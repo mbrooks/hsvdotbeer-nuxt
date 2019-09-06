@@ -1,7 +1,7 @@
 <template>
   <md-portal :md-attach-to-parent="mdAttachToParent">
     <transition name="md-overlay">
-      <div v-if="mdActive" class="md-overlay" :class="overlayClasses" v-on="$listeners"></div>
+      <div v-if="mdActive" class="md-overlay" :class="overlayClasses" v-on="$listeners" />
     </transition>
   </md-portal>
 </template>
@@ -19,7 +19,7 @@ export default {
     mdFixed: Boolean
   },
   computed: {
-    overlayClasses() {
+    overlayClasses () {
       return {
         'md-fixed': this.mdFixed
       }

@@ -1,5 +1,5 @@
-const storeRecord = (records) => (newRecord) => {
-  const existingRecord = records.find((r) => r.id === newRecord.id)
+const storeRecord = records => (newRecord) => {
+  const existingRecord = records.find(r => r.id === newRecord.id)
 
   if (existingRecord) {
     Object.assign(existingRecord, newRecord)
@@ -25,7 +25,7 @@ export const mutations = {
 }
 
 export const actions = {
-  async load({ commit }) {
+  async load ({ commit }) {
     const url = `venues/`
     await this.$axios.get(url).then((res) => {
       if (res.status === 200) {

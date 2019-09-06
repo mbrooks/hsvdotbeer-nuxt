@@ -1,7 +1,7 @@
 <template>
   <div class="container-list">
     <ul id="beer-list">
-      <beer-item v-for="beer in beers" :key="beer.id" :beer="beer"></beer-item>
+      <beer-item v-for="beer in beers" :key="beer.id" :beer="beer" />
     </ul>
   </div>
 </template>
@@ -14,32 +14,32 @@ export default {
   components: {
     BeerItem
   },
-  data() {
+  data () {
     return {
       bottom: false
     }
   },
   computed: {
     ...mapState({
-      next: (state) => state.beers.links.next,
-      beerCount: (state) => state.beers.count,
-      beers: (state) => state.beers.records
+      next: state => state.beers.links.next,
+      beerCount: state => state.beers.count,
+      beers: state => state.beers.records
     })
   },
   watch: {
-    bottom(bottom) {
+    bottom (bottom) {
       if (bottom) {
         this.$store.dispatch('beers/loadNextPage')
       }
     }
   },
-  mounted() {
+  mounted () {
     window.addEventListener('scroll', () => {
       this.bottom = this.bottomVisible()
     })
   },
   methods: {
-    bottomVisible() {
+    bottomVisible () {
       const scrollY = window.scrollY
       const visible = document.documentElement.clientHeight
       const pageHeight = document.documentElement.scrollHeight

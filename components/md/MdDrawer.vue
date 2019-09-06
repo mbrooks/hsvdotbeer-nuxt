@@ -24,7 +24,7 @@ export default {
     mdPersistent: false
   }),
   computed: {
-    drawerClasses() {
+    drawerClasses () {
       const classes = {
         'md-left': !this.mdRight,
         'md-right': this.mdRight,
@@ -45,10 +45,10 @@ export default {
 
       return classes
     },
-    isTemporary() {
+    isTemporary () {
       return !this.mdPermanent && !this.mdPersistent
     },
-    mode() {
+    mode () {
       if (this.mdPersistent) {
         return 'persistent'
       }
@@ -59,7 +59,7 @@ export default {
 
       return 'temporary'
     },
-    submode() {
+    submode () {
       if (this.mdPersistent) {
         return this.mdPersistent
       }
@@ -69,26 +69,26 @@ export default {
       }
       return null
     },
-    mdSwipeElement() {
+    mdSwipeElement () {
       return this.$el.parentNode
     }
   },
   watch: {
-    mdActive(visible) {
+    mdActive (visible) {
       if (visible) {
         this.$emit('md-opened')
       } else {
         this.$emit('md-closed')
       }
     },
-    swiped(value) {
+    swiped (value) {
       if (value === 'right' || value === 'left') {
         this.$emit('update:mdActive', value === 'right')
       }
     }
   },
   methods: {
-    closeDrawer() {
+    closeDrawer () {
       this.$emit('update:mdActive', false)
     }
   }

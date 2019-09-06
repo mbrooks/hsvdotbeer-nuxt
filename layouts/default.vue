@@ -3,13 +3,19 @@
     <md-drawer :md-active.sync="showNavigation">
       <ul class="nav flex-column">
         <li class="nav-item">
-          <b-link class="nav-link" to="/" @click="showNavigation = false">Beers</b-link>
+          <b-link class="nav-link" to="/" @click="showNavigation = false">
+            Beers
+          </b-link>
         </li>
         <li class="nav-item">
-          <b-link class="nav-link" to="/venues" @click="showNavigation = false">Venues</b-link>
+          <b-link class="nav-link" to="/venues" @click="showNavigation = false">
+            Venues
+          </b-link>
         </li>
         <li class="nav-item">
-          <b-link class="nav-link" to="/about" @click="showNavigation = false">About</b-link>
+          <b-link class="nav-link" to="/about" @click="showNavigation = false">
+            About
+          </b-link>
         </li>
       </ul>
     </md-drawer>
@@ -17,7 +23,7 @@
       <div class="container-fluid container-header">
         <nav class="navbar navbar-expand-md navbar">
           <b-link to="/" class="navbar-brand navbar-logo">
-            <hsv-beer-logo></hsv-beer-logo>
+            <hsv-beer-logo />
           </b-link>
           <b-link aria-label="Navigation Menu" class="menu-link md-icon-button" @click="showNavigation = true">
             <svg
@@ -35,7 +41,9 @@
             </svg>
           </b-link>
         </nav>
-        <p class="text-intro lead text-center">Find draft beer in Huntsville</p>
+        <p class="text-intro lead text-center">
+          Find draft beer in Huntsville
+        </p>
       </div>
     </div>
     <main>

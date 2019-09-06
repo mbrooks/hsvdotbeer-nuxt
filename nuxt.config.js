@@ -77,7 +77,7 @@ export default {
      ** You can extend webpack config here
      */
     extractCSS: true,
-    extend(config, ctx) {}
+    extend (config, ctx) {}
   },
   server: {
     port: process.env.PORT || 8000

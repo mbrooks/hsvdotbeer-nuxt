@@ -2,7 +2,7 @@
   <div class="hsv-beer-logo">
     <span ref="particletext" class="particletext bubbles">
       <b-img-lazy ref="logo" class="brand-logo" src="~/assets/hsv-beer-logo.svg" alt="hsv.beer" />
-      <span v-for="p in particles" :key="p.id" class="particle" :style="p.style"></span>
+      <span v-for="p in particles" :key="p.id" class="particle" :style="p.style" />
     </span>
   </div>
 </template>
@@ -10,14 +10,14 @@
 <script>
 export default {
   name: 'HsvBeerLogo',
-  data() {
+  data () {
     return {
       particles: []
     }
   },
-  mounted() {
+  mounted () {
     this.$nextTick(() => {
-      function rnd(m, n) {
+      function rnd (m, n) {
         const mm = parseInt(m, 10)
         const nn = parseInt(n, 10)
         return Math.floor(Math.random() * (nn - mm + 1)) + mm

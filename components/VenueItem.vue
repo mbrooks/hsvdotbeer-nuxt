@@ -6,7 +6,9 @@
       </div>
       <div class="venue-info">
         <nuxt-link :to="venue.slug" class="venue-link">
-          <h2 class="venue-name">{{ venue.name }}</h2>
+          <h2 class="venue-name">
+            {{ venue.name }}
+          </h2>
         </nuxt-link>
       </div>
     </div>
@@ -22,13 +24,13 @@ export default {
       default: () => {}
     }
   },
-  data() {
+  data () {
     return {
       visible: false
     }
   },
   computed: {
-    logo() {
+    logo () {
       if (this.venue.logo_url) {
         return this.venue.logo_url
       }
@@ -36,7 +38,7 @@ export default {
     }
   },
   methods: {
-    toggle() {
+    toggle () {
       this.visible = !this.visible
     }
   }
