@@ -48,6 +48,7 @@
     </div>
     <main>
       <nuxt />
+      <venue-modal />
     </main>
   </div>
 </template>
@@ -55,11 +56,13 @@
 <script>
 import HsvBeerLogo from '~/components/HsvBeerLogo.vue'
 import MdDrawer from '~/components/md/MdDrawer.vue'
+import VenueModal from '~/components/VenueModal'
 
 export default {
   components: {
     HsvBeerLogo,
-    MdDrawer
+    MdDrawer,
+    VenueModal
   },
   data: () => ({
     showNavigation: false

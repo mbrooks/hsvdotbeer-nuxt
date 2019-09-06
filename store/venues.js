@@ -13,6 +13,10 @@ export const state = () => ({
   count: 0
 })
 
+export const getters = {
+  bySlug: state => slug => state.records.find(r => r.slug === slug)
+}
+
 export const mutations = {
   STORE_RECORD: (state, newRecord) => {
     const { records } = state

@@ -28,6 +28,10 @@ export default {
     await store.dispatch('beers/loadPage', {
       options: { on_tap: true, o: 'name' }
     })
+  },
+  beforeRouteLeave (to, from, next) {
+    this.$store.commit('HIDE_MODAL')
+    next()
   }
 }
 </script>

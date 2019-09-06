@@ -30,7 +30,7 @@
           </h3>
           <ul class="find-it-list">
             <li v-for="place of beer.venues" :key="place.id">
-              <b-link target="_blank" rel="noreferrer" :href="place.website">
+              <b-link @click="openModal(place)">
                 {{ place.name }}
               </b-link>
             </li>
@@ -167,6 +167,9 @@ export default {
   methods: {
     toggle () {
       this.visible = !this.visible
+    },
+    openModal (venue) {
+      this.$store.commit('SHOW_MODAL', venue)
     }
   }
 }
