@@ -45,7 +45,7 @@
             :href="beer.untappd_url"
             target="_blank"
             rel="noreferrer"
-            class="btn btn-outline-primary"
+            class="btn btn-outline-primary btn-learn-more"
           >
             Untappd
           </b-link>
@@ -54,7 +54,7 @@
             :href="beer.taphunter_url"
             target="_blank"
             rel="noreferrer"
-            class="btn btn-outline-primary"
+            class="btn btn-outline-primary btn-learn-more"
           >
             TapHunter
           </b-link>
@@ -63,7 +63,7 @@
             :href="beer.rate_beer_url"
             target="_blank"
             rel="noreferrer"
-            class="btn btn-outline-primary"
+            class="btn btn-outline-primary btn-learn-more"
           >
             RateBeer
           </b-link>
@@ -72,7 +72,7 @@
             :href="beer.beer_advocate_url"
             target="_blank"
             rel="noreferrer"
-            class="btn btn-outline-primary"
+            class="btn btn-outline-primary btn-learn-more"
           >
             BeerAdvocate
           </b-link>
@@ -81,7 +81,7 @@
             :href="stemAndSteinUrl"
             target="_blank"
             rel="noreferrer"
-            class="btn btn-outline-primary"
+            class="btn btn-outline-primary btn-learn-more"
           >
             Stem and Stein
           </b-link>
@@ -396,5 +396,9 @@ li.beer:last-of-type .beer-info {
 
 .srm:before {
   background-color: var(--background-color);
+}
+
+.btn-learn-more {
+  margin-bottom: 0.3125rem;
 }
 </style>
