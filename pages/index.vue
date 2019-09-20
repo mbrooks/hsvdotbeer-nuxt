@@ -5,8 +5,8 @@
         <span class="beer-total">{{ beerCount }}</span>
         <span class="d-none">matching</span> beers on tap
       </h2>
+      <sort-widget @updated="updateBeers($event)" />
     </div>
-
     <beer-list />
   </div>
 </template>
@@ -14,10 +14,12 @@
 <script>
 import { mapState } from 'vuex'
 import BeerList from '~/components/BeerList'
+import SortWidget from '~/components/SortWidget'
 
 export default {
   components: {
-    BeerList
+    BeerList,
+    SortWidget
   },
   computed: {
     ...mapState({
@@ -28,6 +30,13 @@ export default {
     await store.dispatch('beers/loadPage', {
       options: { on_tap: true, o: 'name' }
     })
+  },
+  methods: {
+    updateBeers (ordering) {
+      this.$store.dispatch('beers/loadPage', {
+        options: { on_tap: true, o: ordering }
+      })
+    }
   },
   beforeRouteLeave (to, from, next) {
     this.$store.commit('HIDE_MODAL')

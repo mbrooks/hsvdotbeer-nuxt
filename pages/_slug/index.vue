@@ -8,6 +8,7 @@
           {{ venue.name }}
         </b-link>
       </h2>
+      <sort-widget @updated="updateBeers($event)" />
     </div>
 
     <beer-list />
@@ -17,20 +18,23 @@
 <script>
 import { mapState } from 'vuex'
 import BeerList from '~/components/BeerList'
+import SortWidget from '~/components/SortWidget'
 
 export default {
   components: {
-    BeerList
+    BeerList,
+    SortWidget
   },
   computed: {
     ...mapState({
       beerCount: state => state.beers.count
     }),
+    slug () { return this.$route.params.slug },
     venue () {
-      return this.$store.getters['venues/bySlug'](this.$route.params.slug)
+      return this.$store.getters['venues/bySlug'](this.slug)
     }
   },
-  async fetch ({ store, params }) {
+  async fetch ({ store, params, query }) {
     await store.dispatch('beers/loadPage', {
       options: { on_tap: true, taps__venue__slug: params.slug, o: 'name' }
     })
@@ -38,6 +42,11 @@ export default {
   methods: {
     openModal (venue) {
       this.$store.commit('SHOW_MODAL', venue)
+    },
+    updateBeers (ordering) {
+      this.$store.dispatch('beers/loadPage', {
+        options: { on_tap: true, taps__venue__slug: this.slug, o: ordering }
+      })
     }
   },
   beforeRouteLeave (to, from, next) {

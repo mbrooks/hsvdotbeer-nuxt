@@ -71,13 +71,13 @@ export const getters = {
 
 export const actions = {
   async loadPage ({ commit }, { options }) {
-    commit('RESET_STATE')
     commit('SET_STATUS', STATUS_LOADING)
     const url = `beers/?${getOptionsQuery(options)}`
     await this.$axios
       .get(url)
       .then((res) => {
         if (res.status === 200) {
+          commit('RESET_STATE')
           commit('SET_STATUS', STATUS_SUCCESS)
           commit('STORE_RECORDS', res.data.results)
           commit('STORE_LINKS', {
