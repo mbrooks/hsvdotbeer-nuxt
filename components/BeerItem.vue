@@ -2,7 +2,7 @@
   <li class="beer" :class="{ active: visible }">
     <div class="beer-intro">
       <div class="beer-logo">
-        <b-img-lazy :src="logo" blank-src="/img/beernotfound.jpg" :alt="logoAlt" />
+        <b-img-lazy :src="logo" blank-src="/img/beernotfound.jpg" :alt="logoAlt" aria-hidden="true" />
       </div>
       <div class="beer-info">
         <b-link class="beer-link" @click="toggle">
