@@ -53,7 +53,7 @@ export default {
     baseURL: 'https://dev.hsv.beer/api/v1/'
   },
   bootstrapVue: {
-    componentPlugins: ['LayoutPlugin', 'ImagePlugin', 'CollapsePlugin', 'LinkPlugin', 'ModalPlugin']
+    componentPlugins: ['LayoutPlugin', 'ImagePlugin', 'CollapsePlugin', 'LinkPlugin', 'ModalPlugin', 'SidebarPlugin']
   },
   webfontloader: {
     custom: {

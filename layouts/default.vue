@@ -1,31 +1,31 @@
 <template>
   <div class="page-container">
-    <md-drawer :md-active.sync="showNavigation">
+    <b-sidebar id="nav-sidebar" title="navigation" no-header>
       <ul class="nav flex-column">
         <li class="nav-item">
-          <b-link class="nav-link" to="/" @click="showNavigation = false">
+          <b-link v-b-toggle.nav-sidebar class="nav-link" to="/">
             Beers
           </b-link>
         </li>
         <li class="nav-item">
-          <b-link class="nav-link" to="/venues" @click="showNavigation = false">
+          <b-link v-b-toggle.nav-sidebar class="nav-link" to="/venues">
             Venues
           </b-link>
         </li>
         <li class="nav-item">
-          <b-link class="nav-link" to="/about" @click="showNavigation = false">
+          <b-link v-b-toggle.nav-sidebar class="nav-link" to="/about">
             About
           </b-link>
         </li>
       </ul>
-    </md-drawer>
+    </b-sidebar>
     <div class="header">
       <div class="container-fluid container-header">
         <nav class="navbar navbar-expand-md navbar">
           <b-link to="/" class="navbar-brand navbar-logo">
             <hsv-beer-logo />
           </b-link>
-          <b-link aria-label="Navigation Menu" class="menu-link md-icon-button" @click="showNavigation = true">
+          <b-button v-b-toggle.nav-sidebar aria-label="Navigation Menu" class="menu-link md-icon-button">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="24"
@@ -39,7 +39,7 @@
             >
               <path d="M3 12h18M3 6h18M3 18h18" />
             </svg>
-          </b-link>
+          </b-button>
         </nav>
         <p class="text-intro lead text-center">
           Find draft beer in Huntsville
@@ -55,18 +55,13 @@
 
 <script>
 import HsvBeerLogo from '~/components/HsvBeerLogo.vue'
-import MdDrawer from '~/components/md/MdDrawer.vue'
 import VenueModal from '~/components/VenueModal'
 
 export default {
   components: {
     HsvBeerLogo,
-    MdDrawer,
     VenueModal
-  },
-  data: () => ({
-    showNavigation: false
-  })
+  }
 }
 </script>
 
