@@ -25,6 +25,15 @@ export default {
     BeerList,
     SortWidget
   },
+  beforeRouteLeave (to, from, next) {
+    this.$store.commit('HIDE_MODAL')
+    next()
+  },
+  async fetch ({ store, params, query }) {
+    await store.dispatch('beers/loadPage', {
+      options: { on_tap: true, taps__venue__slug: params.slug, o: 'name' }
+    })
+  },
   computed: {
     ...mapState({
       beerCount: state => state.beers.count
@@ -33,11 +42,6 @@ export default {
     venue () {
       return this.$store.getters['venues/bySlug'](this.slug)
     }
-  },
-  async fetch ({ store, params, query }) {
-    await store.dispatch('beers/loadPage', {
-      options: { on_tap: true, taps__venue__slug: params.slug, o: 'name' }
-    })
   },
   methods: {
     openModal (venue) {
@@ -48,10 +52,6 @@ export default {
         options: { on_tap: true, taps__venue__slug: this.slug, o: ordering }
       })
     }
-  },
-  beforeRouteLeave (to, from, next) {
-    this.$store.commit('HIDE_MODAL')
-    next()
   }
 }
 </script>

@@ -21,14 +21,18 @@ export default {
     BeerList,
     SortWidget
   },
-  computed: {
-    ...mapState({
-      beerCount: state => state.beers.count
-    })
+  beforeRouteLeave (to, from, next) {
+    this.$store.commit('HIDE_MODAL')
+    next()
   },
   async fetch ({ store }) {
     await store.dispatch('beers/loadPage', {
       options: { on_tap: true, o: 'name' }
+    })
+  },
+  computed: {
+    ...mapState({
+      beerCount: state => state.beers.count
     })
   },
   methods: {
@@ -37,10 +41,6 @@ export default {
         options: { on_tap: true, o: ordering }
       })
     }
-  },
-  beforeRouteLeave (to, from, next) {
-    this.$store.commit('HIDE_MODAL')
-    next()
   }
 }
 </script>

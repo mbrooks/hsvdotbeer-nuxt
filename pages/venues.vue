@@ -16,13 +16,13 @@ export default {
   components: {
     VenueItem
   },
+  async fetch ({ store }) {
+    await store.dispatch('venues/load')
+  },
   computed: {
     ...mapState({
       venues: state => state.venues.records
     })
-  },
-  async fetch ({ store }) {
-    await store.dispatch('venues/load')
   }
 }
 </script>
