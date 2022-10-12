@@ -1,5 +1,4 @@
 export default {
-  mode: 'universal',
   /*
    ** Headers of the page
    */
@@ -44,7 +43,6 @@ export default {
     // Doc: https://axios.nuxtjs.org/usage
     '@nuxtjs/axios',
     '@nuxtjs/pwa',
-    '@nuxtjs/google-analytics',
     'nuxt-webfontloader'
   ],
   /*
@@ -56,9 +54,6 @@ export default {
   },
   bootstrapVue: {
     componentPlugins: ['LayoutPlugin', 'ImagePlugin', 'CollapsePlugin', 'LinkPlugin', 'ModalPlugin']
-  },
-  googleAnalytics: {
-    id: 'UA-133963028-1'
   },
   webfontloader: {
     custom: {
