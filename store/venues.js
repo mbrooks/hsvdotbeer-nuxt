@@ -30,7 +30,7 @@ export const mutations = {
 
 export const actions = {
   async load ({ commit }) {
-    const url = `venues/`
+    const url = 'venues/'
     await this.$axios.get(url).then((res) => {
       if (res.status === 200) {
         commit('STORE_RECORDS', res.data.results)

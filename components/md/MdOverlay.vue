@@ -1,7 +1,7 @@
 <template>
   <md-portal :md-attach-to-parent="mdAttachToParent">
     <transition name="md-overlay">
-      <div v-if="mdActive" class="md-overlay" :class="overlayClasses" v-on="$listeners" />
+      <div v-if="mdActive" :class="overlayClasses" class="md-overlay" v-on="$listeners" />
     </transition>
   </md-portal>
 </template>

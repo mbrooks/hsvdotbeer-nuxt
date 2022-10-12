@@ -1,5 +1,5 @@
 <template>
-  <li class="venue-list__venue" :class="{ active: visible }">
+  <li :class="{ active: visible }" class="venue-list__venue">
     <div class="venue-list__venue-intro">
       <div class="venue-list__venue-logo">
         <b-img-lazy :src="logo" blank-src="/img/beernotfound.jpg" />

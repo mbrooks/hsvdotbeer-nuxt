@@ -1,8 +1,8 @@
 <template>
-  <li class="beer" :class="{ active: visible }">
+  <li :class="{ active: visible }" class="beer">
     <div class="beer-intro">
       <div class="beer-logo">
-        <b-img-lazy :src="logo" blank-src="/img/beernotfound.jpg" :alt="logoAlt" aria-hidden="true" />
+        <b-img-lazy :src="logo" :alt="logoAlt" blank-src="/img/beernotfound.jpg" aria-hidden="true" />
       </div>
       <div class="beer-info">
         <b-link class="beer-link" @click="toggle">
@@ -13,7 +13,7 @@
         <div class="beer-brewer">
           {{ beer.manufacturer.name }}
         </div>
-        <div class="beer-style srm" :style="styleCss">
+        <div :style="styleCss" class="beer-style srm">
           {{ styleName }}
           <span v-if="abvFixed" class="beer-abv">{{ abvFixed }}%</span>
         </div>

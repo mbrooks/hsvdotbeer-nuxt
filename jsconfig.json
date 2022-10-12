@@ -1,5 +1,6 @@
 {
   "compilerOptions": {
+    "target": "ES2022",
     "baseUrl": ".",
     "paths": {
       "~/*": ["./*"],
@@ -7,6 +8,9 @@
       "~~/*": ["./*"],
       "@@/*": ["./*"]
     }
+  },
+  "vueCompilerOptions": {
+    "target": 2.7
   },
   "exclude": ["node_modules", ".nuxt", "dist"]
 }

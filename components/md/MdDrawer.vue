@@ -1,5 +1,5 @@
 <template>
-  <div class="md-drawer" :class="[drawerClasses]">
+  <div :class="[drawerClasses]" class="md-drawer">
     <slot />
     <md-overlay v-if="mdFixed" :md-active="mdActive" @click="closeDrawer" />
     <md-overlay v-else :md-active="mdActive" md-attach-to-parent @click="closeDrawer" />
