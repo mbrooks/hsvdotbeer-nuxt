@@ -373,15 +373,6 @@ nav .search-container {
     padding-right:.5rem;
   }
 
-  .taphouse-select-container {
-    flex:0 0 50%;
-    padding-left:.5rem;
-  }
-
-  .taphouse-select-container:before {
-    background-position: 90% 50%;
-  }
-
   .beer-info {
     display:flex;
     flex-direction: column;
@@ -394,7 +385,7 @@ nav .search-container {
     flex-basis: 100%;
   }
 
-   .beer-brewer, .beer-style {
+  .beer-brewer, .beer-style {
     width: 50%;
     flex-basis: auto;
   }

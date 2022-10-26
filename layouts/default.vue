@@ -44,7 +44,8 @@
         <p class="text-intro lead text-center">
           Find draft beer in Huntsville
         </p>
-        <SearchBox v-if="$route.name === 'index'" />
+        <SearchBox v-if="['index', 'slug', 'venues'].includes($route.name)" />
+        <VenueSelect v-if="['index', 'slug', 'venues'].includes($route.name)" />
       </div>
     </div>
     <main>
@@ -58,12 +59,14 @@
 import HsvBeerLogo from '~/components/HsvBeerLogo.vue'
 import SearchBox from '~/components/SearchBox.vue'
 import VenueModal from '~/components/VenueModal'
+import VenueSelect from '~/components/VenueSelect.vue'
 
 export default {
   components: {
     HsvBeerLogo,
     SearchBox,
-    VenueModal
+    VenueModal,
+    VenueSelect
   }
 }
 </script>
