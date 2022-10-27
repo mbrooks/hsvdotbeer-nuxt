@@ -2,33 +2,32 @@
   <div class="hsv-beer-logo">
     <span ref="particletext" class="particletext bubbles">
       <b-img-lazy ref="logo" class="brand-logo" src="~/assets/hsv-beer-logo.svg" alt="hsv.beer" />
-      <span v-for="p in particles" :key="p.id" :style="p.style" class="particle" />
+      <template v-for="p in particles">
+        <span :key="p.id" :style="p.style" class="particle" />
+      </template>
     </span>
   </div>
 </template>
 
 <script>
+function rnd (m, n) {
+  const mm = parseInt(m, 10)
+  const nn = parseInt(n, 10)
+  return Math.floor(Math.random() * (nn - mm + 1)) + mm
+}
+
 export default {
   name: 'HsvBeerLogo',
-  data () {
-    return {
-      particles: []
-    }
-  },
-  mounted () {
-    this.$nextTick(() => {
-      function rnd (m, n) {
-        const mm = parseInt(m, 10)
-        const nn = parseInt(n, 10)
-        return Math.floor(Math.random() * (nn - mm + 1)) + mm
-      }
-      const bubblecount = (this.$refs.logo.clientWidth / 50) * 4
+  computed: {
+    particles () {
+      const results = []
+      const bubblecount = 12
       for (let i = 0; i <= bubblecount; i += 1) {
         const size = rnd(40, 80) / 10
         const top = rnd(0, 60)
         const left = rnd(0, 95)
         const delay = rnd(0, 30) / 10
-        this.particles.push({
+        results.push({
           id: i,
           style: {
             top: `${top}%`,
@@ -39,7 +38,8 @@ export default {
           }
         })
       }
-    })
+      return results
+    }
   }
 }
 </script>
