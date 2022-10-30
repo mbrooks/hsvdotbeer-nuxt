@@ -15,8 +15,8 @@
       v-model="query"
       type="text"
       class="form-control search"
-      placeholder="Search beers, brewers, or styles"
-      aria-label="Search beers, brewers, or styles"
+      placeholder="Search beers, breweries, or styles"
+      aria-label="Search beers, breweries, or styles"
       @focus="search_active = true"
       @keyup.enter="onQueryEnter"
     >
