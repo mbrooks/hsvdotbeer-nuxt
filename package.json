@@ -25,7 +25,7 @@
     "@nuxtjs/axios": "^5.3.6",
     "@nuxtjs/pwa": "3.3.5",
     "bootstrap-vue": "^2.23.1",
-    "nuxt": "^2.15.8",
+    "nuxt": "^3.1.1",
     "nuxt-webfontloader": "^1.1.0",
     "raf": "^3.4.1"
   },
